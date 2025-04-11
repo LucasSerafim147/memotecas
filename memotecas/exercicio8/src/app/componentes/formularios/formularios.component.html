@@ -1,0 +1,85 @@
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        formControlName="nome"
+        [ngClass]="{'is-invalid': nome.invalid && (nome.dirty || nome.touched)}"
+      >
+      @if(nome.invalid && (nome.dirty || nome.touched)){
+      <div class="text-danger">
+        @if(nome.errors?.['required']){
+        <small >Campo obrigatório</small>
+      }
+      @if(nome.errors?.['minlenght']){
+        <small >Mínimo 3 caracteres</small>
+      }
+      </div>
+    
+    }
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+      >
+      @if(email.invalid && (email.dirty || email.touched)){
+      <div class="text-danger">
+        @if(email.errors?.['required']){
+        <small>Campo obrigatório</small>
+        }
+        @if(email.errors?.['email']){
+        <small *ngIf="email.errors?.['email']">Email inválido</small>
+        }
+      </div>
+    }
+    </div>
+  
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input
+        type="tel"
+        class="form-control"
+        id="telefone"
+        formControlName="telefone"
+        [ngClass]="{'is-invalid': telefone.invalid && (telefone.dirty || telefone.touched)}"
+      >
+      @if(telefone.invalid && (telefone.dirty || telefone.touched)){
+      <div  class="text-danger">
+        @if(telefone.errors?.['required']){
+        <small >Campo obrigatório</small>
+        }
+        @if(telefone.errors?.['pattern']){
+        <small >Telefone deve ter 10 ou 11 dígitos</small>
+        }
+      </div>
+    }
+    </div>
+  
+    <div class="mb-3">
+      <label for="data" class="form-label">Data de Nascimento</label>
+      <input
+        type="date"
+        class="form-control"
+        id="data"
+        formControlName="data"
+        [ngClass]="{'is-invalid': data.invalid && (data.dirty || data.touched)}"
+      >
+      @if(data.invalid &&(data.dirty || data.touched)){
+      <div  class="text-danger">
+        @if(data.errors?.['required']){
+        <small *ngIf="data.errors?.['required']">Campo obrigatório</small>
+        }
+      </div>
+    }
+    </div>
+  
+    <button type="submit" class="btn btn-primary btn-lg" [disabled]="formulario.invalid">Next</button>
+  </form>
