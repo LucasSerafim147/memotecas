@@ -8,6 +8,7 @@
         formControlName="nome"
         [ngClass]="{'is-invalid': nome.invalid && (nome.dirty || nome.touched)}"
       >
+<<<<<<< HEAD
       @if(nome.invalid && (nome.dirty || nome.touched)){
       <div class="text-danger">
         @if(nome.errors?.['required']){
@@ -19,6 +20,12 @@
       </div>
     
     }
+=======
+      <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="text-danger">
+        <small *ngIf="nome.errors?.['required']">Campo obrigatório</small>
+        <small *ngIf="nome.errors?.['minlength']">Mínimo 3 caracteres</small>
+      </div>
+>>>>>>> fd1dc3b0a20c7e59cb61967932813e5f88f1cc38
     </div>
   
     <div class="mb-3">
@@ -30,6 +37,7 @@
         formControlName="email"
         [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
       >
+<<<<<<< HEAD
       @if(email.invalid && (email.dirty || email.touched)){
       <div class="text-danger">
         @if(email.errors?.['required']){
@@ -40,6 +48,12 @@
         }
       </div>
     }
+=======
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+        <small *ngIf="email.errors?.['required']">Campo obrigatório</small>
+        <small *ngIf="email.errors?.['email']">Email inválido</small>
+      </div>
+>>>>>>> fd1dc3b0a20c7e59cb61967932813e5f88f1cc38
     </div>
   
     <div class="mb-3">
@@ -51,6 +65,7 @@
         formControlName="telefone"
         [ngClass]="{'is-invalid': telefone.invalid && (telefone.dirty || telefone.touched)}"
       >
+<<<<<<< HEAD
       @if(telefone.invalid && (telefone.dirty || telefone.touched)){
       <div  class="text-danger">
         @if(telefone.errors?.['required']){
@@ -61,6 +76,12 @@
         }
       </div>
     }
+=======
+      <div *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)" class="text-danger">
+        <small *ngIf="telefone.errors?.['required']">Campo obrigatório</small>
+        <small *ngIf="telefone.errors?.['pattern']">Telefone deve ter 10 ou 11 dígitos</small>
+      </div>
+>>>>>>> fd1dc3b0a20c7e59cb61967932813e5f88f1cc38
     </div>
   
     <div class="mb-3">
@@ -72,6 +93,7 @@
         formControlName="data"
         [ngClass]="{'is-invalid': data.invalid && (data.dirty || data.touched)}"
       >
+<<<<<<< HEAD
       @if(data.invalid &&(data.dirty || data.touched)){
       <div  class="text-danger">
         @if(data.errors?.['required']){
@@ -79,6 +101,11 @@
         }
       </div>
     }
+=======
+      <div *ngIf="data.invalid && (data.dirty || data.touched)" class="text-danger">
+        <small *ngIf="data.errors?.['required']">Campo obrigatório</small>
+      </div>
+>>>>>>> fd1dc3b0a20c7e59cb61967932813e5f88f1cc38
     </div>
   
     <button type="submit" class="btn btn-primary btn-lg" [disabled]="formulario.invalid">Next</button>
