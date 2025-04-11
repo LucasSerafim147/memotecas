@@ -13,13 +13,14 @@
         @if(nome.errors?.['required']){
         <small >Campo obrigatório</small>
       }
-      @if(nome.errors?.['minlenght']){
-        <small >Mínimo 3 caracteres</small>
+      @if(nome.errors?.['minLength']){
+        <small >Mínimo três caracteres</small>
       }
       </div>
     
     }
     </div>
+
   
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
@@ -36,7 +37,7 @@
         <small>Campo obrigatório</small>
         }
         @if(email.errors?.['email']){
-        <small *ngIf="email.errors?.['email']">Email inválido</small>
+        <small >Email inválido</small>
         }
       </div>
     }
