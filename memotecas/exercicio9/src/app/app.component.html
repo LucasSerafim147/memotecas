@@ -1,23 +1,72 @@
-
-<h1 class="text-danger text-decoration-underline text-center">Inscrição</h1>
-
-
-<form>
-  <div class="mb-3">
-    <label for="nome" class="form-label">Nome</label>
-    <input type="text" class="form-control" id="nome" placeholder="Insira seu nome">
-    <div id="nome" class="form-text"></div>
+<div class="modal-body row">
+  <div class="col-md-6">
+    <!-- Your first column here -->
   </div>
 
-  <div class="mb-3">
-    <label for="email" class="form-label">email</label>
-    <input type="text" class="form-control" id="email">
-  </div>
 
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+
+  
+  <div class="col-md-6">
+    <h1 class="text-danger text-decoration-underline text-center">Inscrição</h1>
+
+
+
+    <div>
+      <form>
+
+        <div class="row mb-3">
+          <div class="mb-3 col-6">
+            <label for="nome" class="form-label">Nome</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nome"
+              placeholder="Insira seu nome"
+            />
+            <div id="nome" class="form-text"></div >
+          </div>
+          <div class="mb-3 col-6">
+            <label for="email" class="form-label">email</label>
+            <input type="text" class="form-control" id="email" />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="dropdown mb-3 col-6">
+            <p>Estados</p>
+            <button
+              class="btn btn-white btn-lg dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            ></button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+          
+          <div class="dropdown mb-3 col-6">
+            <p>Cidades</p>
+            <button
+              class="btn btn-white btn-lg dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            ></button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
