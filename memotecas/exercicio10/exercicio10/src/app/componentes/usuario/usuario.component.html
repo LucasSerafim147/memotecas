@@ -1,0 +1,19 @@
+<div class="container mt-3" [ngClass]="corFunde" >
+    @if(usuarioAtivo == null){
+    <div  class="alert alert-info">
+      Carregando...
+    </div>
+}
+  
+    @if(usuarioAtivo == true){
+    <div  class="alert alert-primary">
+      Usuário está ativo!
+    </div>
+}
+  
+    @if(usuarioAtivo == false){
+    <div  class="alert alert-danger">
+      Usuário não está ativo!
+    </div>
+}
+  </div>
