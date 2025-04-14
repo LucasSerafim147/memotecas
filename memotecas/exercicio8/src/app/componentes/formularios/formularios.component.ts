@@ -18,7 +18,7 @@ export class FormsValidationComponent {
     data: new FormControl('', [Validators.required])
   });
 
-  // Getters para facilitar o acesso aos controles no HTML
+  
   get nome() {
     return this.formulario.get('nome')!;
   }

@@ -1,6 +1,6 @@
-<div class="modal-body row">
-    <div class="col-md-6">
-      <img src=""class="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/d9/fa/1b/lost-valley.jpg?w=900&h=500&s=1" alt="ERA PRA TER UMA FOTO AQUI MAS POR ALGUM MOTIVO NÃO TA INDO">
+<div class="modal-body row g-0">
+    <div class="col-md-6 d-flex align-items-stretch">
+      <img src="https://www.mundoconectado.com.br/wp-content/uploads/2022/04/superlua.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="ERA PRA TER UMA FOTO AQUI MAS POR ALGUM MOTIVO NÃO TA INDO"/>
     </div>
   
   
@@ -14,7 +14,7 @@
   
   
       <div >
-        <form {formGroup}="formulario" ()>
+        <form [formGroup]="formulario" >
   
           <div class="row mb-3">
             <div class="mb-3 col-6">
@@ -23,7 +23,10 @@
                 type="text"
                 class="form-control"
                 id="nome"
-                placeholder="Insira seu nome"
+                placeholder="Insira seu nome
+                "
+                formControlName="nome"
+
               />
               <div id="nome" class="form-text"></div >
             </div>
