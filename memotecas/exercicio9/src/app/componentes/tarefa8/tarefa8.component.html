@@ -2,16 +2,9 @@
     <div class="col-md-6 d-flex align-items-stretch">
       <img src="https://www.mundoconectado.com.br/wp-content/uploads/2022/04/superlua.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="ERA PRA TER UMA FOTO AQUI MAS POR ALGUM MOTIVO NÃO TA INDO"/>
     </div>
-  
-  
-  
-  
-  
     
     <div class="col-md-6 p-5 ">
       <h1 class="text-danger text-decoration-underline text-center">Inscrição</h1>
-  
-  
   
       <div >
         <form [formGroup]="formulario" >
@@ -25,15 +18,40 @@
                 id="nome"
                 placeholder="Insira seu nome
                 "
+                [ngClass]="{'is-invalid': nome.invalid && (nome.dirty || nome.touched)}"
                 formControlName="nome"
-
               />
-              <div id="nome" class="form-text"></div >
+
+              @if(nome.invalid && (nome.dirty || nome.touched)){
+                <div class="text-danger">
+                  @if(nome.errors?.['required']){
+                  <small >Campo obrigatório</small>
+                }
+                @if(nome.errors?.['minLength']){
+                  <small >Mínimo três caracteres</small>
+                }
+                </div>
+              
+              }
+              
+              <div id="nome" class="form-text" ></div >
             </div>
             <div class="mb-3 col-6">
               <label for="email" class="form-label">email</label>
               <input type="text" class="form-control" id="email"
-              placeholder="insira seu email" />
+              placeholder="insira seu email"
+              [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+               />
+               @if(email.invalid && (email.dirty || email.touched)){
+                <div class="text-danger">
+                  @if(email.errors?.['required']){
+                  <small>Campo obrigatório</small>
+                  }
+                  @if(email.errors?.['email']){
+                  <small >Email inválido</small>
+                  }
+                </div>
+              }
             </div>
           </div>
   
@@ -71,7 +89,20 @@
                 class="form-control"
                 id="instituicao"
                 placeholder="Insira sua instituicao"
+                 [ngClass]="{'is-invalid': instituicao.invalid && (instituicao.dirty || instituicao.touched)}"
               />
+              @if(instituicao.invalid && (instituicao.dirty || instituicao.touched)){
+                <div class="text-danger">
+                  @if(instituicao.errors?.['required']){
+                  <small >Campo obrigatório</small>
+                }
+                @if(instituicao.errors?.['minLength']){
+                  <small >Mínimo três caracteres</small>
+                }
+                </div>
+              
+              }
+              
               <div id="instituicao" class="form-text"></div >
             </div>
           </div>

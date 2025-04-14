@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, Validators, FormControl, FormGroup } from '@angular/forms';
 import { get } from 'http';
 
 @Component({
   selector: 'app-tarefa8',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './tarefa8.component.html',
   styleUrl: './tarefa8.component.css'
 })
@@ -26,7 +27,7 @@ get email() {
   return this.formulario.get('email')!;
 }
 
-get telefone() {
+get instituicao() {
   return this.formulario.get('instituicao')!;
 }
 
