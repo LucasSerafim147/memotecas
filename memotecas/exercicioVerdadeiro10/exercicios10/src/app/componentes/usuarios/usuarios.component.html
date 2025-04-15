@@ -1,3 +1,21 @@
 <div class="container mt-4">
-    
+
+    @if(usuarioAtivo !== null){
+        <div>
+            @if(usuarioAtivo){
+                <div class="alert alert-primary">
+                    usuario Ativo
+                </div>
+            } @else {
+                <div class="alert alert-danger">
+                    usuario inativo
+                </div>
+            }
+        </div>
+    } @else {
+        <div class="spinner-border text-secondary " role="status"
+        >
+        <span class="visually-hidden"> carregando</span>
+    </div>
+    }
 </div>
