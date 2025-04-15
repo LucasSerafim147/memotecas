@@ -4,7 +4,7 @@ import { Tarefa8Component } from "./componentes/tarefa8/tarefa8.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Tarefa8Component],
+  imports: [ Tarefa8Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -13,7 +13,8 @@ export class UsuarioComponent implements OnInit {
     fetch('http://localhost:3000/usuario', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({})
+      body: JSON.stringify({}),
+      mode: 'cors'
     })
       .then(response => {
         if (!response.ok) throw new Error('Erro na requisição');
