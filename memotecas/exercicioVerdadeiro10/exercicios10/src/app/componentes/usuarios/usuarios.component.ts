@@ -19,7 +19,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   verificarStatusAtivo(){
-    this.http.post<{ ativo: boolean}>('http://localhost:3000/usuario',{})
+    this.http.get<{ ativo: boolean}>('http://localhost:3000/usuario',{})
     .subscribe({
       next:(resposta) => { this.usuarioAtivo = resposta.ativo}
     })
