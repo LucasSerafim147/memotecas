@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
   Pensamento,
@@ -34,7 +34,7 @@ export class MuralComponent {
   };
 
   private readonly aspasClasses: Record<number, string> = {
-    // cores dos cards mudados no css forms
+    // cores dAS ASPAS mudados no css forms
     1: 'blockquote-primary',
     2: 'blockquote-info',
     3: 'blockquote-success',
@@ -44,6 +44,12 @@ export class MuralComponent {
   constructor(private Service: PensamentosService,
      private router: Router) {
     this.carregarPensamentos();
+
+    effect(() => {
+      console.log('Pensamentos no component:', this.pensamentos());
+    });
+  
+    
   }
   getCardClass = computed(
     () => (modelo: number) => this.cardClasses[modelo] || this.aspasClasses[1]

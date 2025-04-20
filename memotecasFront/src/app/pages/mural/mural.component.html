@@ -21,3 +21,37 @@
       <button class="btn btn-link" (click)="carregarPensamentos()">Tentar novamente</button>
     </div>
   } @else {
+    <div class="row g-4 justify-content-center">
+        @for (pensamento of pensamentos(); track pensamento.id) {
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card {{ getCardClass()(pensamento.Modelos) }} h-100">
+              <div class="card-body">
+                <blockquote class="blockquote {{ getaAspasClass()(pensamento.Modelos) }}">
+                  <p class="card-text">{{ pensamento.Pensamento }}</p>
+                  <footer class="blockquote-footer mt-2">{{ pensamento.Autor }}</footer>
+                </blockquote>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div class="d-flex gap-2">
+                    <button
+                      class="btn btn-outline-light btn-sm"
+                      (click)="editarPensamento(pensamento)"
+                    >
+                      <i class="bi bi-pencil-square"></i> Editar
+                    </button>
+                    <button
+                      class="btn btn-danger btn-sm"
+                      (click)="confirmarDeletar(pensamento)"
+                    >
+                      <i class="bi bi-trash"></i> Excluir
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }@empty{<div class="col-12 text-center">
+            <p class="text-muted">Nenhum pensamento encontrado.</p>
+          </div>
+        }
+    </div>
+}

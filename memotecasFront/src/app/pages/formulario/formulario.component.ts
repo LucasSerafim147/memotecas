@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
@@ -47,9 +47,9 @@ export class FormularioComponent {
   carregarDadosParaEdicao() {
     if (this.pensamentoParaEditar) {
       this.formulario.patchValue({
-        pensamento: this.pensamentoParaEditar.pensamento,
-        autor: this.pensamentoParaEditar.autor,
-        modelo: this.pensamentoParaEditar.modelo.toString()
+        pensamento: this.pensamentoParaEditar.Pensamento,
+        autor: this.pensamentoParaEditar.Autor,
+        modelo: this.pensamentoParaEditar.Modelos.toString()
       });
     }
   }
@@ -75,31 +75,41 @@ export class FormularioComponent {
   }
 
   onSubmit() {
+    console.log('Formulário submetido');
+    console.log('Formulário válido:', this.formulario.valid);
+    console.log('Valores do formulário:', this.formulario.value);
+    console.log('Erros do formulário:', this.formulario.errors);
     if (this.formulario.valid) {
       const pensamento: Pensamento = {
-        pensamento: this.formulario.value.pensamento,
-        autor: this.formulario.value.autor,
-        modelo: Number(this.formulario.value.modelo)
+        Pensamento: this.formulario.value.pensamento,
+        Autor: this.formulario.value.autor,
+        Modelos: Number(this.formulario.value.modelo)
       };
-
+      console.log('Pensamento a ser enviado:', pensamento);
       if (this.estaEditando && this.pensamentoParaEditar?.id) {
         pensamento.id = this.pensamentoParaEditar.id;
         this.atualizarPensamento(pensamento);
       } else {
         this.criarPensamento(pensamento);
       }
+
+    }else {
+      console.log('Formulário inválido, erros:', this.formulario.controls);
     }
   }
 
   criarPensamento(pensamento: Pensamento) {
+    console.log('Enviando pensamento para o serviço:', pensamento);
     this.pensamentoService.criar(pensamento).subscribe({
-      next: () => {
+      next: (response) => {
+        console.log('Resposta da API:', response)
         Swal.fire({
           title: 'Sucesso!',
           text: 'Pensamento criado com sucesso!',
           icon: 'success'
         }).then(() => {
           this.limparCampos();
+          this.voltarParaMural();
         });
       },
       error: (erro) => {

@@ -1,0 +1,35 @@
+.card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+  }
+  
+  .blockquote {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .quote-icon::before {
+    content: '“';
+    font-size: 3rem;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    line-height: 1;
+  }
+  
+  .quote-icon.blue::before {
+    color: #0dcaf0;
+  }
+  
+  .quote-icon.green::before {
+    color: #198754;
+  }
+  
+  .blockquote-footer {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .btn-outline-primary, .btn-outline-danger {
+    border-radius: 5px;
+  }
