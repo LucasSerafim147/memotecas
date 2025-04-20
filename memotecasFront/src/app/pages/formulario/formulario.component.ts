@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })
@@ -23,7 +23,7 @@ export class FormularioComponent {
   estaEditando: boolean = false;
 
   constructor(
-    private fb: FormBuilder,
+    private form: FormBuilder,
     private router: Router,
     private pensamentoService: PensamentosService
   ) {
@@ -33,7 +33,7 @@ export class FormularioComponent {
     this.pensamentoParaEditar = navigation?.extras.state?.['pensamento'];
     this.estaEditando = !!this.pensamentoParaEditar;
 
-    this.formulario = this.fb.group({
+    this.formulario = this.form.group({
       pensamento: ['', [Validators.required, Validators.maxLength(300)]],
       autor: ['', [Validators.required, Validators.maxLength(50)]],
       modelo: ['1', Validators.required]
