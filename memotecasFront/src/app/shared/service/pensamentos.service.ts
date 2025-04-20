@@ -17,7 +17,10 @@ export interface Pensamento{
 export class PensamentosService {
   private readonly API =  'https://localhost:7177/swagger/index.html'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    console.log("httpeCliente Injetado", http)
+  }
+
   listar(): Observable<Pensamento[]> {
     return this.http.get<Pensamento[]>(this.API);
   }
