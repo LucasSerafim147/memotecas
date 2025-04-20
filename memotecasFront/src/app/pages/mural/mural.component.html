@@ -22,7 +22,7 @@
     </div>
   } @else {
     <div class="row g-4 justify-content-center">
-        @for (pensamento of pensamentos(); track pensamento.id) {
+        @for (pensamento of pensamentos(); track $index + '-' + (pensamento.Id || 'null')) {
           <div class="col-12 col-md-6 col-lg-4">
             <div class="card {{ getCardClass()(pensamento.Modelos) }} h-100">
               <div class="card-body">

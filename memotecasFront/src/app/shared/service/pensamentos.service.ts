@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Pensamento {
-  id?: number;
+  Id?: number;
   Pensamento: string;
   Autor: string;
   Modelos: number;
@@ -35,12 +35,8 @@ export class PensamentosService {
   }
 
   atualizar(pensamento: Pensamento): Observable<Pensamento> {
-    const payload = {
-      pensamento: pensamento.Pensamento,
-      autor: pensamento.Autor,
-      modelo: pensamento.Modelos
-    };
-    console.log('Atualizando pensamento:', payload);
-    return this.http.put<Pensamento>(`${this.API}/${pensamento.id}`, payload);
+  
+   
+    return this.http.put<Pensamento>(`${this.API}/${pensamento.Id}`, pensamento);
   }
 }

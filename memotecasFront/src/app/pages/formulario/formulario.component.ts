@@ -86,8 +86,8 @@ export class FormularioComponent {
         Modelos: Number(this.formulario.value.modelo)
       };
       console.log('Pensamento a ser enviado:', pensamento);
-      if (this.estaEditando && this.pensamentoParaEditar?.id) {
-        pensamento.id = this.pensamentoParaEditar.id;
+      if (this.estaEditando && this.pensamentoParaEditar?.Id) {
+        pensamento.Id = this.pensamentoParaEditar.Id;
         this.atualizarPensamento(pensamento);
       } else {
         this.criarPensamento(pensamento);
@@ -120,7 +120,7 @@ export class FormularioComponent {
   }
 
   atualizarPensamento(pensamento: Pensamento) {
-    if (!pensamento.id) return;
+    if (!pensamento.Id) return;
 
     this.pensamentoService.atualizar(pensamento).subscribe({
       next: () => {

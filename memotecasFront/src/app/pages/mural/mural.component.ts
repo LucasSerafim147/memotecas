@@ -99,11 +99,11 @@ export class MuralComponent {
   }
 
   private deletarPensamento(pensamento: Pensamento): void{
-    if(!pensamento.id){
+    if(!pensamento.Id){
       Swal.fire('erro!','Id do pensamento inváldo', 'error');
       return;
     }
-    this.Service.deletar(pensamento.id).subscribe({
+    this.Service.deletar(pensamento.Id).subscribe({
       next: () => {
         Swal.fire('Sucesso!', 'Pensamento excluído com sucesso.', 'success');
         this.carregarPensamentos(); // Recarrega a lista
