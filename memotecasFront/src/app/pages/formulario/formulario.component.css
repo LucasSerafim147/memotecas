@@ -13,3 +13,9 @@ section{
   .card-verde {
     box-shadow: 8px 8px 3px rgba(4, 94, 1, 0.74);
   }
+  .btn-primary {
+    min-width: 120px; /* Largura mínima para consistência */
+  }
+  .btn-secondary, .btn-outline-secondary {
+    min-width: 120px;
+  }
