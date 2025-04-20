@@ -3,3 +3,13 @@ section{
     background-size: cover;
     min-height: 100vh;
 }
+
+.card-azul {
+    box-shadow: 8px 8px 3px rgba(1, 1, 105, 0.74);
+  }
+  .card-claro {
+    box-shadow: 8px 8px 3px rgba(9, 184, 190, 0.74);
+  }
+  .card-verde {
+    box-shadow: 8px 8px 3px rgba(4, 94, 1, 0.74);
+  }
