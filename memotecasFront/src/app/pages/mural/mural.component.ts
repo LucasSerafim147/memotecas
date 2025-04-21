@@ -26,19 +26,17 @@ export class MuralComponent {
 
   //mapeamento para cards e as aspas
 
-  private readonly cardClasses: Record<number, string> = {
-    // cores dos cards mudados no css forms
-    1: 'text-bg-primary',
-    2: 'text-bg-info',
-    3: 'text-bg-success',
-  };
+ private readonly cardClasses: Record<number, string> = {
+  1: ' card-border-primary',
+  2: ' card-border-info',
+  3: ' card-border-success',
+};
 
-  private readonly aspasClasses: Record<number, string> = {
-    // cores dAS ASPAS mudados no css forms
-    1: 'blockquote-primary',
-    2: 'blockquote-info',
-    3: 'blockquote-success',
-  };
+private readonly aspasClasses: Record<number, string> = {
+  1: 'blockquote-primary',
+  2: 'blockquote-info',
+  3: 'blockquote-success',
+};
 
  
   constructor(private Service: PensamentosService,
