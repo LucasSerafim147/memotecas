@@ -87,11 +87,7 @@ export class MuralComponent {
     Math.ceil(this.totalItens() / this.itensPorPagina)
   );
 
-  mudarPagina(novaPagina: number): void {
-    if (novaPagina < 1 || novaPagina > this.totalPaginas()) return;
-    this.paginaAtual.set(novaPagina);
-    this.atualizaPensamentosExibidos();
-  }
+ 
 
   navegarParaFormuario(): void {
     this.router.navigate(['/formulario']);
