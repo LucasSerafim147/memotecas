@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-mural',
   standalone: true,
-  imports: [CommonModule, RouterModule], // Adicione módulos ou componentes conforme necessário
+  imports: [CommonModule, RouterModule], 
   templateUrl: './mural.component.html',
   styleUrls: ['./mural.component.css'],
 })
@@ -22,7 +22,7 @@ export class MuralComponent {
   isLoading = signal<boolean>(false);
   error = signal<string | null>(null);
 
-  //variaveis paginacao
+  pensamentosExibido = signal<Pensamento[]>([]);
   paginaAtual = signal<number>(1);
   itensPorPagina = 6;
   totalItens = signal<number>(0);
@@ -62,7 +62,9 @@ export class MuralComponent {
 
     this.Service.listar().subscribe({
       next: (pensamentos) => {
-        this.pensamentos.set(pensamentos);
+        this.pensamentos.set(pensamentos); 
+        this.totalItens.set(pensamentos.length);
+        this.atualizaPensamentosExibidos(); 
         this.isLoading.set(false);
       },
       error: (erro) => {
